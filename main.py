@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_file
 from scraper.bsj_scraper import Scrape_Skills
-from scraper.web3_scraper import Scrape_web3
 from scraper.wwr_scraper import Scrape_wwr
 from my_file_utils import save_to_file
 import os
@@ -23,10 +22,6 @@ def search():
         scraper_bsj = Scrape_Skills(keyword)
         scraper_bsj.scrape_page()
         jobs_bsj = scraper_bsj.keyword_jobs()
-        
-        # scraper_web3 = Scrape_web3(keyword)
-        # scraper_web3.scrape_page()
-        # jobs_web3 = scraper_web3.keyword_jobs()
 
         scraper_wwr = Scrape_wwr(keyword)
         scraper_wwr.scrape_page()
