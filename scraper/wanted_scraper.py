@@ -20,6 +20,10 @@ class Scraper:
         self.content = page.content()
 
         p.stop()
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        return False
 
     def keyword_jobs(self):
         jobs_db = []
